@@ -33,7 +33,7 @@
     "prettier_target": "*.{js,jsx,md,json} src/**/*.{js,jsx,md,json} test/**/*.{js,jsx,md,json} docs/**/*.{js,jsx,md,json} stories/**/*.{js,jsx,md,json} cypress/**/*.{js,jsx,md,json} csp-server/**/*.{js,jsx,md,json}"
   },
   "scripts": {
-    "prepare": "npm build",
+    "prepare": "npm run build",
     "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=single-vertical-list--basic --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
     "test": "jest --config ./jest.config.js",
     "test:ci": "jest test --maxWorkers=2",
@@ -54,7 +54,8 @@
     "build:flow": "echo \"// @flow\n\nexport * from '../src';\" > dist/react-beautiful-dnd.cjs.js.flow",
     "storybook": "start-storybook -p 9002",
     "build-storybook": "build-storybook -c .storybook -o site",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "rollup": "rollup"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
@@ -129,7 +130,7 @@
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-json": "4.0.0",
-    "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "2.2.0",
     "rollup-plugin-size-snapshot": "0.11.0",
     "rollup-plugin-strip": "1.2.2",
